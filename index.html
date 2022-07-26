@@ -14,7 +14,7 @@
 
     var config = {
         type: Phaser.AUTO,
-        width: 1200,
+        width: 3000,
         height: 700,
         physics: {
             default: 'arcade',
@@ -75,6 +75,7 @@
         this.load.image('platform', 'assets/street.png');
         this.load.image('player', 'assets/francois1.png');
         this.load.image('dumpster', 'assets/dumpster1.png');
+        this.load.image('lamp', 'assets/lamp.png');
     }
 
     function create()
@@ -99,7 +100,7 @@
 
 
        //camera scroll
-       this.cameras.main.setBounds(0, 0, 1200, 700); //(x, y, width, height) width bound for total level
+       this.cameras.main.setBounds(0, 0, 3000, 700); //(x, y, width, height) width bound for total level
        this.cameras.main.startFollow(player, false, 0.5, 0.5);
        this.cameras.main.setZoom(1.5);
     }
@@ -113,7 +114,9 @@
         basePlatform.setScale(3, 1).refreshBody(); //scales the base platform in the x axis to cover the entire floor
 
         platforms.create(250, 600, 'dumpster'); //creates the upper left platform
-        platforms.create(950, 600, 'dumpster'); //creates the bottome right platform
+        platforms.create(950, 600, 'dumpster'); //creates the bottom right platform
+        platforms.create(1950, 600, 'lamp'); //creates the bottom right platform
+        
     }
 
     function update()
